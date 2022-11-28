@@ -76,14 +76,13 @@ history_per_optimizer = dict()
 
 print("Experiment: {0}start{1} (training logs = off)".format(log_begin_red, log_end_format))
 for optimizer_name in optimizers_examples:
-    # Resetting the seeds (for random number generation), to reduce the impact of randomness on the comparison:
     tf.random.set_seed(42)
     np.random.seed(42)
-    # Creating the model:
+
     model = lenet("lenet_{}".format(optimizer_name))
     optimizer = optimizers_examples[optimizer_name]
     model.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-    # Launching the training (we set `verbose=0`, so the training won't generate any logs):
+
     print("\t> Training with {0}: {1}start{2}".format(
         optimizer_name, log_begin_red, log_end_format))
     history = model.fit(x_train, y_train,
