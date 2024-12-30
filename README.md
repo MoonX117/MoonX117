@@ -1,5 +1,4 @@
 - 👋 Hi, I’m CHEN Xi
-- 👀 My student ID is 22482784
 
 
 <!---
